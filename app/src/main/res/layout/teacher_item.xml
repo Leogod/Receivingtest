@@ -11,10 +11,10 @@
         android:id="@+id/teacher_small_imageView" />
 
     <TextView
+        android:id="@+id/teacher_name_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/teacher_name_textView"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
-        android:layout_gravity="center_vertical" />
+        android:text="New Text" />
 </LinearLayout>
