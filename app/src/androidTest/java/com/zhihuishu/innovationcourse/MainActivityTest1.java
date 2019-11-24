@@ -1,10 +1,13 @@
 package com.zhihuishu.innovationcourse;
 
 
+import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.ImageView;
 
+import androidx.core.content.ContextCompat;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
@@ -23,6 +26,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
+import static org.junit.Assert.assertEquals;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -42,6 +46,11 @@ public class MainActivityTest1 {
                                 0),
                         isDisplayed()));
         imageView.check(matches(isDisplayed()));
+        Activity activity=mActivityTestRule.getActivity();
+        ImageView view1=activity.findViewById(R.id.teacher_small_imageView);
+
+        assertEquals(ContextCompat.getDrawable(activity,R.drawable.zhx).getConstantState(),view1.getDrawable().getCurrent().getConstantState());
+
 
         ViewInteraction textView = onView(
                 allOf(withId(R.id.teacher_name_textView), withText("张海霞"),
@@ -63,6 +72,10 @@ public class MainActivityTest1 {
                         isDisplayed()));
         imageView2.check(matches(isDisplayed()));
 
+        ImageView view2=activity.findViewById(R.id.teacher_small_imageView);
+
+       // assertEquals(ContextCompat.getDrawable(activity,R.drawable.yw).getConstantState(),view2.getDrawable().getCurrent().getConstantState());
+
         ViewInteraction textView2 = onView(
                 allOf(withId(R.id.teacher_name_textView), withText("陈江"),
                         childAtPosition(
@@ -82,6 +95,9 @@ public class MainActivityTest1 {
                                 0),
                         isDisplayed()));
         imageView3.check(matches(isDisplayed()));
+        ImageView view3=activity.findViewById(R.id.teacher_small_imageView);
+
+        //assertEquals(ContextCompat.getDrawable(activity,R.drawable.yw).getConstantState(),view3.getDrawable().getCurrent().getConstantState());
 
         ViewInteraction textView3 = onView(
                 allOf(withId(R.id.teacher_name_textView), withText("叶蔚"),
